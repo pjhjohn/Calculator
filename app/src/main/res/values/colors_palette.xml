@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="teal50">#E0F2F1</color>
+    <color name="teal100">#B2DFDB</color>
+    <color name="teal200">#80CBC4</color>
+    <color name="teal300">#4DB6AC</color>
+    <color name="teal400">#26A69A</color>
+    <color name="teal500">#009688</color>
+    <color name="teal600">#00897B</color>
+    <color name="teal700">#00796B</color>
+    <color name="teal800">#00695C</color>
+    <color name="teal900">#004D40</color>
+    <color name="tealA100">#A7FFEB</color>
+    <color name="tealA200">#64FFDA</color>
+    <color name="tealA400">#1DE9B6</color>
+    <color name="tealA700">#00BFA5</color>
+
+    <color name="gray50">#FAFAFA</color>
+    <color name="gray100">#F5F5F5</color>
+    <color name="gray200">#EEEEEE</color>
+    <color name="gray300">#E0E0E0</color>
+    <color name="gray400">#BDBDBD</color>
+    <color name="gray500">#9E9E9E</color>
+    <color name="gray600">#757575</color>
+    <color name="gray700">#616161</color>
+    <color name="gray800">#424242</color>
+    <color name="gray900">#212121</color>
+
+</resources>

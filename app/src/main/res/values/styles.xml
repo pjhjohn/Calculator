@@ -3,9 +3,30 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primaryDark</item>
+        <item name="colorAccent">@color/accent</item>
+    </style>
+
+    <style name="PanelButton" parent="Base.Widget.AppCompat.Button">
+        <item name="android:foreground">?android:attr/selectableItemBackground</item>
+        <item name="android:textSize">32sp</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="PanelButton.Number">
+        <item name="android:background">@color/bgPanelButtonNumber</item>
+        <item name="android:textColor">@color/fgPanelButtonNumber</item>
+    </style>
+
+    <style name="PanelButton.Operator">
+        <item name="android:background">@color/bgPanelButtonOperator</item>
+        <item name="android:textColor">@color/fgPanelButtonOperator</item>
+    </style>
+
+    <style name="PanelButton.Special">
+        <item name="android:background">@color/bgPanelButtonSpecial</item>
+        <item name="android:textColor">@color/fgPanelButtonSpecial</item>
     </style>
 
 </resources>

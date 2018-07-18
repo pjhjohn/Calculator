@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+
+    <!--Theme-->
+    <color name="primary">@color/teal500</color>
+    <color name="primaryDark">@color/teal700</color>
+    <color name="accent">@color/tealA200</color>
+
+    <!--AccentCalculator-->
+    <color name="bgDisplay">@color/gray100</color>
+    <color name="fgDisplay">@color/primaryDark</color>
+    <color name="bgPanel">@color/primary</color>
+    <color name="fgPanel">@color/gray100</color>
+    <color name="bgPanelButtonNumber">@color/teal500</color>
+    <color name="fgPanelButtonNumber">@color/gray100</color>
+    <color name="bgPanelButtonOperator">@color/teal700</color>
+    <color name="fgPanelButtonOperator">@color/gray100</color>
+    <color name="bgPanelButtonSpecial">@color/teal600</color>
+    <color name="fgPanelButtonSpecial">@color/gray100</color>
+
 </resources>

@@ -1,4 +1,4 @@
-package io.pjhjohn.calculator.view.main
+package io.pjhjohn.calculator.view.active
 
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
@@ -8,17 +8,17 @@ import android.view.View
 import android.view.ViewGroup
 import io.pjhjohn.calculator.R
 
-class ActiveCalculatorFragment : Fragment() {
+class ActiveCalculatorPanelFragment : Fragment() {
 
     companion object {
-        fun newInstance() = ActiveCalculatorFragment()
+        fun newInstance() = ActiveCalculatorPanelFragment()
     }
 
     private lateinit var viewModel: ActiveCalculatorViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
-        return inflater.inflate(R.layout.fragment_active_calculator, container, false)
+        return inflater.inflate(R.layout.fragment_active_calculator_panel, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

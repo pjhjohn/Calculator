@@ -1,4 +1,4 @@
-package io.pjhjohn.calculator.view.main
+package io.pjhjohn.calculator.view.active
 
 import androidx.lifecycle.ViewModel
 

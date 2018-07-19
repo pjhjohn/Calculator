@@ -17,6 +17,6 @@
     <string name="btn_operator_multiply">×</string>
     <string name="btn_operator_divide">÷</string>
 
-    <string name="btn_special_reset">c</string>
-    <string name="btn_special_evaluate">=</string>
+    <string name="btn_command_reset">c</string>
+    <string name="btn_command_evaluate">=</string>
 </resources>

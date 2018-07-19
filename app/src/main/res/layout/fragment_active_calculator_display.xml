@@ -2,6 +2,8 @@
 <layout>
 
     <data>
+        <import type="io.pjhjohn.calculator.model.Expression"/>
+        <import type="io.pjhjohn.calculator.model.Operand"/>
         <variable name="vm" type="io.pjhjohn.calculator.view.active.ActiveCalculatorViewModel"/>
     </data>
 
@@ -16,6 +18,24 @@
         tools:context=".view.active.ActiveCalculatorPanelFragment">
 
         <TextView
+            android:id="@+id/tv_expression"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
+            android:gravity="start"
+            android:text="@{ vm.expression.toString() }"
+            android:textColor="@color/gray300"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@+id/tv_evaluation_result"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"/>
+
+        <TextView
             android:id="@+id/tv_evaluation_result"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -24,7 +44,7 @@
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="32dp"
             android:gravity="end"
-            android:text="@{ vm.evaluationResult }"
+            android:text="@{ vm.evaluationResult.toString() }"
             android:textColor="@color/fgDisplay"
             android:textSize="32sp"
             app:layout_constraintBottom_toBottomOf="parent"

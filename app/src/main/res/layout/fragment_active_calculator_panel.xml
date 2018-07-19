@@ -38,9 +38,9 @@
             android:text="@string/btn_number_8"
             app:layout_constraintBottom_toBottomOf="@+id/btn_number_7"
             app:layout_constraintDimensionRatio="1:1"
-            app:layout_constraintEnd_toStartOf="@+id/btn_special_evaluate"
+            app:layout_constraintEnd_toStartOf="@+id/btn_command_evaluate"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/btn_special_reset"
+            app:layout_constraintStart_toEndOf="@+id/btn_command_reset"
             app:layout_constraintTop_toTopOf="@+id/btn_number_7"/>
 
         <Button style="@style/PanelButton.Number"
@@ -66,7 +66,7 @@
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/btn_special_evaluate"
+            app:layout_constraintStart_toEndOf="@+id/btn_command_evaluate"
             app:layout_constraintTop_toTopOf="@+id/btn_number_7"/>
 
         <Button style="@style/PanelButton.Number"
@@ -91,9 +91,9 @@
             android:text="@string/btn_number_5"
             app:layout_constraintBottom_toBottomOf="@+id/btn_number_4"
             app:layout_constraintDimensionRatio="1:1"
-            app:layout_constraintEnd_toStartOf="@+id/btn_special_evaluate"
+            app:layout_constraintEnd_toStartOf="@+id/btn_command_evaluate"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/btn_special_reset"
+            app:layout_constraintStart_toEndOf="@+id/btn_command_reset"
             app:layout_constraintTop_toTopOf="@+id/btn_number_4"/>
 
         <Button style="@style/PanelButton.Number"
@@ -119,7 +119,7 @@
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/btn_special_evaluate"
+            app:layout_constraintStart_toEndOf="@+id/btn_command_evaluate"
             app:layout_constraintTop_toTopOf="@+id/btn_number_4"/>
 
         <Button style="@style/PanelButton.Number"
@@ -128,7 +128,7 @@
             android:layout_height="0dp"
             android:onClick="@{ () -> vm.input(@string/btn_number_1) }"
             android:text="@string/btn_number_1"
-            app:layout_constraintBottom_toTopOf="@+id/btn_special_reset"
+            app:layout_constraintBottom_toTopOf="@+id/btn_command_reset"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintEnd_toStartOf="@+id/btn_number_0"
             app:layout_constraintHorizontal_bias="0.5"
@@ -144,9 +144,9 @@
             android:text="@string/btn_number_2"
             app:layout_constraintBottom_toBottomOf="@+id/btn_number_1"
             app:layout_constraintDimensionRatio="1:1"
-            app:layout_constraintEnd_toStartOf="@+id/btn_special_evaluate"
+            app:layout_constraintEnd_toStartOf="@+id/btn_command_evaluate"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/btn_special_reset"
+            app:layout_constraintStart_toEndOf="@+id/btn_command_reset"
             app:layout_constraintTop_toTopOf="@+id/btn_number_1"/>
 
         <Button style="@style/PanelButton.Number"
@@ -172,15 +172,15 @@
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/btn_special_evaluate"
+            app:layout_constraintStart_toEndOf="@+id/btn_command_evaluate"
             app:layout_constraintTop_toTopOf="@+id/btn_number_1"/>
 
-        <Button style="@style/PanelButton.Special"
-            android:id="@+id/btn_special_reset"
+        <Button style="@style/PanelButton.Command"
+            android:id="@+id/btn_command_reset"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:onClick="@{ () -> vm.input(@string/btn_special_reset) }"
-            android:text="@string/btn_special_reset"
+            android:onClick="@{ () -> vm.input(@string/btn_command_reset) }"
+            android:text="@string/btn_command_reset"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintEnd_toStartOf="@+id/btn_number_0"
@@ -195,25 +195,25 @@
             android:layout_height="0dp"
             android:onClick="@{ () -> vm.input(@string/btn_number_0) }"
             android:text="@string/btn_number_0"
-            app:layout_constraintBottom_toBottomOf="@+id/btn_special_reset"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_command_reset"
             app:layout_constraintDimensionRatio="1:1"
-            app:layout_constraintEnd_toStartOf="@+id/btn_special_evaluate"
+            app:layout_constraintEnd_toStartOf="@+id/btn_command_evaluate"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/btn_special_reset"
-            app:layout_constraintTop_toTopOf="@+id/btn_special_reset"/>
+            app:layout_constraintStart_toEndOf="@+id/btn_command_reset"
+            app:layout_constraintTop_toTopOf="@+id/btn_command_reset"/>
 
-        <Button style="@style/PanelButton.Special"
-            android:id="@+id/btn_special_evaluate"
+        <Button style="@style/PanelButton.Command"
+            android:id="@+id/btn_command_evaluate"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:onClick="@{ () -> vm.input(@string/btn_special_evaluate) }"
-            android:text="@string/btn_special_evaluate"
-            app:layout_constraintBottom_toBottomOf="@+id/btn_special_reset"
+            android:onClick="@{ () -> vm.input(@string/btn_command_evaluate) }"
+            android:text="@string/btn_command_evaluate"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_command_reset"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintEnd_toStartOf="@+id/btn_operator_plus"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/btn_number_0"
-            app:layout_constraintTop_toTopOf="@+id/btn_special_reset"/>
+            app:layout_constraintTop_toTopOf="@+id/btn_command_reset"/>
 
         <Button style="@style/PanelButton.Operator"
             android:id="@+id/btn_operator_plus"
@@ -221,12 +221,12 @@
             android:layout_height="0dp"
             android:onClick="@{ () -> vm.input(@string/btn_operator_plus) }"
             android:text="@string/btn_operator_plus"
-            app:layout_constraintBottom_toBottomOf="@+id/btn_special_reset"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_command_reset"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/btn_special_evaluate"
-            app:layout_constraintTop_toTopOf="@+id/btn_special_reset"/>
+            app:layout_constraintStart_toEndOf="@+id/btn_command_evaluate"
+            app:layout_constraintTop_toTopOf="@+id/btn_command_reset"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

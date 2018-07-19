@@ -24,9 +24,9 @@
         <item name="android:textColor">@color/fgPanelButtonOperator</item>
     </style>
 
-    <style name="PanelButton.Special">
-        <item name="android:background">@color/bgPanelButtonSpecial</item>
-        <item name="android:textColor">@color/fgPanelButtonSpecial</item>
+    <style name="PanelButton.Command">
+        <item name="android:background">@color/bgPanelButtonCommand</item>
+        <item name="android:textColor">@color/fgPanelButtonCommand</item>
     </style>
 
 </resources>

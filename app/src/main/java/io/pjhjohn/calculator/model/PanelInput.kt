@@ -1,5 +1,8 @@
 package io.pjhjohn.calculator.model
 
+import io.pjhjohn.calculator.calc.model.Operand
+import io.pjhjohn.calculator.calc.model.Operator
+
 sealed class PanelInput(val type: Type, val value: String) {
 
     object Number0 : PanelInput(Type.NUMBER, "0")
@@ -25,9 +28,31 @@ sealed class PanelInput(val type: Type, val value: String) {
         NUMBER, OPERATOR, RESET, EVALUATE
     }
 
+    fun toOperand(): Operand = when (this) {
+        Number0 -> Operand.Dirty(0)
+        Number1 -> Operand.Dirty(1)
+        Number2 -> Operand.Dirty(2)
+        Number3 -> Operand.Dirty(3)
+        Number4 -> Operand.Dirty(4)
+        Number5 -> Operand.Dirty(5)
+        Number6 -> Operand.Dirty(6)
+        Number7 -> Operand.Dirty(7)
+        Number8 -> Operand.Dirty(8)
+        Number9 -> Operand.Dirty(9)
+        else -> throw IllegalArgumentException("Cannot convert PanelInput($this) to Int")
+    }
+
+    fun toOperator(): Operator = when (this) {
+        OperatorPlus -> Operator.Plus
+        OperatorMinus -> Operator.Minus
+        OperatorMultiply -> Operator.Multiply
+        OperatorDivide -> Operator.Divide
+        else -> throw IllegalArgumentException("Cannot convert PanelInput($this) to Operator")
+    }
+
 }
 
-fun String.asPanelInput(): PanelInput = when (this) {
+fun String.toPanelInput(): PanelInput = when (this) {
     PanelInput.Number0.value -> PanelInput.Number0
     PanelInput.Number1.value -> PanelInput.Number1
     PanelInput.Number2.value -> PanelInput.Number2

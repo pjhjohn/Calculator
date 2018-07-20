@@ -2,8 +2,6 @@
 <layout>
 
     <data>
-        <import type="io.pjhjohn.calculator.model.Expression"/>
-        <import type="io.pjhjohn.calculator.model.Operand"/>
         <variable name="vm" type="io.pjhjohn.calculator.view.active.ActiveCalculatorViewModel"/>
     </data>
 
@@ -25,7 +23,7 @@
             android:layout_marginTop="32dp"
             android:layout_marginEnd="16dp"
             android:gravity="start"
-            android:text="@{ vm.expression.toString() }"
+            android:text="@{ vm.expression }"
             android:textColor="@color/gray300"
             android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@+id/tv_evaluation_result"
@@ -44,7 +42,7 @@
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="32dp"
             android:gravity="end"
-            android:text="@{ vm.evaluationResult.toString() }"
+            android:text="@{ vm.evaluationResult }"
             android:textColor="@color/fgDisplay"
             android:textSize="32sp"
             app:layout_constraintBottom_toBottomOf="parent"

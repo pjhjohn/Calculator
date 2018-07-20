@@ -2,102 +2,36 @@ package io.pjhjohn.calculator.view.active
 
 import androidx.databinding.ObservableField
 import androidx.lifecycle.ViewModel
-import io.pjhjohn.calculator.model.*
-import io.pjhjohn.calculator.model.PanelInput.Type.*
+import io.pjhjohn.calculator.calc.ActiveCalculator
+import io.pjhjohn.calculator.calc.Calculator
+import io.pjhjohn.calculator.model.PanelInput
+import io.pjhjohn.calculator.model.toPanelInput
 
 class ActiveCalculatorViewModel : ViewModel() {
 
-    val expression: ObservableField<Expression> = ObservableField(Expression())
-    val evaluationResult: ObservableField<Operand> = ObservableField(Operand.Empty)
+    val calculator: Calculator by lazy { ActiveCalculator }
+
+    val expression: ObservableField<String> = ObservableField(calculator.expr.toString())
+    val evaluationResult: ObservableField<String> = ObservableField(calculator.eval.toString())
 
     fun input(value: String) {
-        val panelInput = value.asPanelInput()
-        val expr = expression.get() ?: return
-
-        expression.set(when(panelInput.type) {
-            NUMBER -> {
-                when (expr.lastArgument) {
-                    Expression.Argument.NONE,
-                    Expression.Argument.OPERAND1
-                    -> {
-                        expr.operand1.update(panelInput).let {
-                            evaluationResult.set(it)
-                            expr.copy(operand1 = it, operator = Operator.Empty, operand2 = Operand.Empty)
-                        }
-                    }
-
-                    Expression.Argument.OPERATOR,
-                    Expression.Argument.OPERAND2
-                    -> {
-                        if (expr.operand2.isFresh) {
-                            expr.operand1.update(panelInput).let {
-                                evaluationResult.set(it)
-                                expr.copy(operand1 = it, operator = Operator.Empty, operand2 = Operand.Empty)
-                            }
-                        } else {
-                            expr.operand2.update(panelInput).let {
-                                evaluationResult.set(it)
-                                expr.copy(operand2 = it)
-                            }
-                        }
-                    }
-                }
+        val panelInput = value.toPanelInput()
+        when (panelInput.type) {
+            PanelInput.Type.NUMBER -> {
+                calculator.input(panelInput.toOperand())
             }
-            OPERATOR -> {
-                val operator = panelInput.asOperator()
-                when (expr.lastArgument) {
-                    Expression.Argument.NONE
-                    -> expr
-
-                    Expression.Argument.OPERAND1,
-                    Expression.Argument.OPERATOR
-                    -> {
-                        evaluationResult.set(Operand.Fresh(expr.operand1.value))
-                        expr.copy(operator = operator, operand2 = Operand.Empty)
-                    }
-
-                    Expression.Argument.OPERAND2
-                    -> {
-                        if (expr.operand2.isFresh) {
-                            evaluationResult.set(Operand.Fresh(expr.operand1.value))
-                            expr.copy(operator = operator, operand2 = Operand.Empty)
-                        } else {
-                            expr.evaluate()?.let {
-                                evaluationResult.set(Operand.Fresh(it))
-                                expr.copy(operand1 = Operand.Fresh(it), operator = operator, operand2 = Operand.Empty)
-                            }
-                        }
-                    }
-                }
+            PanelInput.Type.OPERATOR -> {
+                calculator.input(panelInput.toOperator())
             }
-            RESET -> {
-                evaluationResult.set(Operand.Empty)
-                Expression()
+            PanelInput.Type.RESET -> {
+                calculator.reset()
             }
-            EVALUATE -> {
-                when (expr.lastArgument) {
-                    Expression.Argument.NONE,
-                    Expression.Argument.OPERAND1,
-                    Expression.Argument.OPERATOR
-                    -> expr
+            PanelInput.Type.EVALUATE -> {
+                calculator.evaluate()
+            }
+        }
 
-                    Expression.Argument.OPERAND2
-                    -> {
-                        if (expr.operand2.isFresh) {
-                            expr.evaluate()?.let {
-                                evaluationResult.set(Operand.Fresh(it))
-                                expr.copy(operand1 = Operand.Fresh(it))
-                            }
-                        } else {
-                            expr.evaluate()?.let {
-                                evaluationResult.set(Operand.Fresh(it))
-                                expr.copy(operand1 = Operand.Fresh(it), operand2 = Operand.Fresh(expr.operand2.value))
-                            }
-                        }
-                    }
-                }
-            }
-        })
+        expression.set(calculator.expr.toString())
+        evaluationResult.set(calculator.eval.toString())
     }
-
 }

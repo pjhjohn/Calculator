@@ -5,12 +5,12 @@ import io.pjhjohn.calculator.calc.model.Expression
 import io.pjhjohn.calculator.calc.model.Operand
 import io.pjhjohn.calculator.calc.model.Operator
 
-object ActiveCalculator {
+object ActiveCalculator : Calculator {
 
-    val expression: ObservableField<Expression> = ObservableField(Expression())
-    val evaluationResult: ObservableField<Operand> = ObservableField(Operand.Empty)
+    override val expression: ObservableField<Expression> = ObservableField(Expression())
+    override val evaluationResult: ObservableField<Operand> = ObservableField(Operand.Empty)
 
-    fun input(operand: Operand) {
+    override fun input(operand: Operand) {
         val expr = expression.get() ?: return
         expression.set(
             when (expr.lastArgument) {
@@ -42,7 +42,7 @@ object ActiveCalculator {
         )
     }
 
-    fun input(operator: Operator) {
+    override fun input(operator: Operator) {
         val expr = expression.get() ?: return
         expression.set(
             when (expr.lastArgument) {
@@ -72,12 +72,12 @@ object ActiveCalculator {
         )
     }
 
-    fun reset() {
+    override fun reset() {
         evaluationResult.set(Operand.Empty)
         expression.set(Expression())
     }
 
-    fun evaluate() {
+    override fun evaluate() {
         val expr = expression.get() ?: return
         expression.set(
             when (expr.lastArgument) {

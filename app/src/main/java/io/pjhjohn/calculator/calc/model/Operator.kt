@@ -1,32 +1,23 @@
 package io.pjhjohn.calculator.calc.model
 
-sealed class Operator {
+enum class Operator {
 
-    object Plus : Operator()
-    object Minus : Operator()
-    object Multiply : Operator()
-    object Divide : Operator()
-    object Empty : Operator()
+    Plus,
+    Minus,
+    Multiply,
+    Divide,
+    Empty;
 
     val isEmpty: Boolean
-        get() = this is Empty
-
-    val value: String
-        get() = when (this) {
-            is Plus -> "+"
-            is Minus -> "-"
-            is Multiply -> "×"
-            is Divide -> "÷"
-            is Empty -> throw IllegalArgumentException("Operator is empty")
-        }
+        get() = this == Empty
 
     override fun toString(): String =
         when (this) {
-            is Plus -> "+"
-            is Minus -> "-"
-            is Multiply -> "×"
-            is Divide -> "÷"
-            is Empty -> ""
+            Plus -> "+"
+            Minus -> "-"
+            Multiply -> "×"
+            Divide -> "÷"
+            Empty -> ""
         }
 
 }

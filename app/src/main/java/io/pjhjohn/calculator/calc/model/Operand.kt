@@ -6,12 +6,6 @@ sealed class Operand {
     class Dirty(val number: Int) : Operand()
     object Empty : Operand()
 
-    val isFresh: Boolean
-        get() = this is Fresh
-
-    val isDirty: Boolean
-        get() = this is Dirty
-
     val isEmpty: Boolean
         get() = this is Empty
 
@@ -22,12 +16,13 @@ sealed class Operand {
             is Empty -> throw IllegalArgumentException("Operand is empty")
         }
 
-    fun update(number: Int): Operand =
-        when (this) {
-            is Fresh -> Dirty(number)
-            is Dirty -> Dirty(this.number * 10 + number)
-            is Empty -> Dirty(number)
+    fun update(operand: Operand): Operand =
+        if (operand is Dirty) when (this) {
+            is Fresh -> operand
+            is Dirty -> Dirty(this.number * 10 + operand.number)
+            is Empty -> operand
         }
+        else throw IllegalArgumentException("Operand is not dirty")
 
     override fun toString(): String =
         when (this) {

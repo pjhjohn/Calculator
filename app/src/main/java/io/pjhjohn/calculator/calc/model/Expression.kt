@@ -18,11 +18,11 @@ data class Expression(
     fun evaluate(): Float? {
         return if (operand1.isEmpty || operand2.isEmpty) null
         else when (operator) {
-            is Operator.Plus -> operand1.value + operand2.value
-            is Operator.Minus -> operand1.value - operand2.value
-            is Operator.Multiply -> operand1.value * operand2.value
-            is Operator.Divide -> operand1.value / operand2.value
-            is Operator.Empty -> null
+            Operator.Plus -> operand1.value + operand2.value
+            Operator.Minus -> operand1.value - operand2.value
+            Operator.Multiply -> operand1.value * operand2.value
+            Operator.Divide -> operand1.value / operand2.value
+            Operator.Empty -> null
         }
     }
 

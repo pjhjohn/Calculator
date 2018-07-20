@@ -1,4 +1,4 @@
-package io.pjhjohn.calculator.model
+package io.pjhjohn.calculator.calc.model
 
 data class Expression(
     val operand1: Operand = Operand.Empty,

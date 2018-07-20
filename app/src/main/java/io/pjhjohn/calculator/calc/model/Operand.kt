@@ -1,4 +1,4 @@
-package io.pjhjohn.calculator.model
+package io.pjhjohn.calculator.calc.model
 
 sealed class Operand {
 
@@ -22,21 +22,21 @@ sealed class Operand {
             is Empty -> throw IllegalArgumentException("Operand is empty")
         }
 
-    fun update(input: PanelInput): Operand = input.value.toIntOrNull()?.let {
+    fun update(number: Int): Operand =
         when (this) {
-            is Fresh -> Dirty(it)
-            is Dirty -> Dirty(this.number * 10 + it)
-            is Empty -> Dirty(it)
+            is Fresh -> Dirty(number)
+            is Dirty -> Dirty(this.number * 10 + number)
+            is Empty -> Dirty(number)
         }
-    } ?: this
 
-    override fun toString(): String = when (this) {
-        is Fresh -> when {
-            this.number - this.number.toInt() == 0.0f -> this.number.toInt().toString()
-            else -> this.number.toString()
+    override fun toString(): String =
+        when (this) {
+            is Fresh -> when {
+                this.number - this.number.toInt() == 0.0f -> this.number.toInt().toString()
+                else -> this.number.toString()
+            }
+            is Dirty -> this.number.toString()
+            is Empty -> ""
         }
-        is Dirty -> this.number.toString()
-        is Empty -> ""
-    }
 
 }

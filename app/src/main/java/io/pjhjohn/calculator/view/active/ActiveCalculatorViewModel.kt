@@ -11,13 +11,8 @@ class ActiveCalculatorViewModel : ViewModel() {
 
     val calculator: Calculator by lazy { ActiveCalculator }
 
-    val expression: ObservableField<String> = object : ObservableField<String>(calculator.expression) {
-        override fun get(): String? = calculator.expression.get().toString()
-    }
-
-    val evaluationResult: ObservableField<String> = object : ObservableField<String>(calculator.evaluationResult) {
-        override fun get(): String? = calculator.evaluationResult.get().toString()
-    }
+    val expression: ObservableField<String> = ObservableField(calculator.expr.toString())
+    val evaluationResult: ObservableField<String> = ObservableField(calculator.eval.toString())
 
     fun input(value: String) {
         val panelInput = value.toPanelInput()
@@ -35,5 +30,8 @@ class ActiveCalculatorViewModel : ViewModel() {
                 calculator.evaluate()
             }
         }
+
+        expression.set(calculator.expr.toString())
+        evaluationResult.set(calculator.eval.toString())
     }
 }

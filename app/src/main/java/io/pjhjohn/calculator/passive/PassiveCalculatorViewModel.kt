@@ -1,14 +1,13 @@
-package io.pjhjohn.calculator.view.active
+package io.pjhjohn.calculator.passive
 
 import androidx.databinding.ObservableField
 import androidx.lifecycle.ViewModel
-import io.pjhjohn.calculator.calc.ActiveCalculator
-import io.pjhjohn.calculator.calc.Calculator
+import io.pjhjohn.calculator.base.Calculator
 import io.pjhjohn.calculator.model.PanelInput
 
-class ActiveCalculatorViewModel : ViewModel() {
+class PassiveCalculatorViewModel : ViewModel() {
 
-    val calculator: Calculator by lazy { ActiveCalculator }
+    val calculator: Calculator by lazy { PassiveCalculator }
 
     val expression: ObservableField<String> = ObservableField(calculator.expr.toString())
     val evaluationResult: ObservableField<String> = ObservableField(calculator.eval.toString())

@@ -9,6 +9,7 @@ import java.util.*
 object Storage {
 
     const val LAST_ACTIVITY_CLASSNAME = "last_activity_classname"
+    const val LAST_EVALUATION_FORMAT = "last_evaluation_%s"
 
     private fun local(): SharedPreferences {
         val context = App.context()
@@ -24,6 +25,7 @@ object Storage {
     fun getInt(key: String, fallback: Int): Int = local().getInt(key, fallback)
     fun getLong(key: String, fallback: Long): Long = local().getLong(key, fallback)
     fun getString(key: String, fallback: String): String = local().getString(key, fallback)
+    fun getStringNullable(key: String, fallback: String? = null): String? = local().getString(key, fallback)
 
     /* SharedPreferences.Editor Method Mapping */
     fun remove(key: String) = local().edit().remove(key).apply()

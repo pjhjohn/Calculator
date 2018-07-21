@@ -32,7 +32,7 @@ class PassiveCalculatorViewModel : CalculatorViewModel(PassiveCalculator) {
             -> calculator.evaluate()
         }
 
-        expression.set(calculator.expr.toString())
-        evaluationResult.set(calculator.eval.toString())
+        expression.value = calculator.expr.toString()
+        evaluationResult.value = calculator.eval.toString()
     }
 }

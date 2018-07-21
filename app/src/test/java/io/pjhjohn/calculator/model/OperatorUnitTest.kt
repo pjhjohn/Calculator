@@ -19,8 +19,33 @@ class OperatorUnitTest : UnitTestWatcher() {
     }
 
     @Test
-    fun litmus() {
-        assertThat(true).isTrue()
+    fun testPlusOperator() {
+        assertThat(Operator.Plus.isEmpty).isFalse()
+        assertThat(Operator.Plus.toString()).isEqualTo("+")
+    }
+
+    @Test
+    fun testMinusOperator() {
+        assertThat(Operator.Minus.isEmpty).isFalse()
+        assertThat(Operator.Minus.toString()).isEqualTo("-")
+    }
+
+    @Test
+    fun testMultiplyOperator() {
+        assertThat(Operator.Multiply.isEmpty).isFalse()
+        assertThat(Operator.Multiply.toString()).isEqualTo("×")
+    }
+
+    @Test
+    fun testDivideOperator() {
+        assertThat(Operator.Divide.isEmpty).isFalse()
+        assertThat(Operator.Divide.toString()).isEqualTo("÷")
+    }
+
+    @Test
+    fun testEmptyOperatorWithoutException() {
+        assertThat(Operator.Empty.isEmpty).isTrue()
+        assertThat(Operator.Empty.toString()).isEmpty()
     }
 
 }

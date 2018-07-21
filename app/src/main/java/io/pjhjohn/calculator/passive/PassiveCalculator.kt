@@ -11,7 +11,7 @@ object PassiveCalculator : Calculator {
     override var eval: Operand = Operand.Empty
 
     override fun input(operand: Operand) {
-        expr = when (expr.lastArgument) {
+        expr = if (expr.locked) expr else when (expr.lastArgument) {
             Expression.Argument.NONE,
             Expression.Argument.OPERAND1
             -> {
@@ -37,7 +37,7 @@ object PassiveCalculator : Calculator {
     }
 
     override fun input(operator: Operator) {
-        expr = when (expr.lastArgument) {
+        expr = if (expr.locked) expr else when (expr.lastArgument) {
             Expression.Argument.NONE
             -> expr
 
@@ -50,9 +50,7 @@ object PassiveCalculator : Calculator {
                 if (expr.operand2 is Operand.Fresh) {
                     expr.copy(operator = operator, operand2 = Operand.Empty)
                 } else {
-                    expr.evaluate()?.let {
-                        expr.copy(operand1 = Operand.Fresh(it), operator = operator, operand2 = Operand.Empty)
-                    } ?: expr
+                    expr.copy(locked = true)
                 }
             }
         }.copy(hide = false)
@@ -91,7 +89,7 @@ object PassiveCalculator : Calculator {
                     } ?: expr
                 }
             }
-        }.copy(hide = true)
+        }.copy(locked = false, hide = true)
     }
 
 }

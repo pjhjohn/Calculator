@@ -4,6 +4,7 @@ data class Expression(
     val operand1: Operand = Operand.Empty,
     val operator: Operator = Operator.Empty,
     val operand2: Operand = Operand.Empty,
+    val locked: Boolean = false,
     val hide: Boolean = true
 ) {
 

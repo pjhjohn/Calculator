@@ -19,7 +19,8 @@ class PassiveCalculatorUnitTest : UnitTestWatcher() {
         "5833026+6÷6099".toCharArray(),
         "+c+138138+-77×".toCharArray(),
         "-58==3-6÷50+91".toCharArray(),
-        "+886=8×4==÷29+".toCharArray()
+        "+886=8×4==÷29+".toCharArray(),
+        "c3×3+9-1==6=×=".toCharArray()
     )
 
     @Before
@@ -41,7 +42,8 @@ class PassiveCalculatorUnitTest : UnitTestWatcher() {
             listOf("", "", "", "", "", "", "", "", "", "", "", "", "", ""),
             listOf("", "", "", "", "", "", "", "", "", "", "", "", "", ""),
             listOf("", "", "", "58", "58", "58", "58", "58", "58", "58", "58", "58", "58", "58"),
-            listOf("", "", "", "", "886", "886", "886", "886", "32", "128", "128", "128", "128", "128")
+            listOf("", "", "", "", "886", "886", "886", "886", "32", "128", "128", "128", "128", "128"),
+            listOf("", "", "", "", "", "", "", "", "9", "27", "27", "6", "6", "6")
         )
 
         inputsList.zip(expectationsList).forEach { listPair ->

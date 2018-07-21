@@ -50,7 +50,7 @@ class PassiveCalculatorUnitTest : UnitTestWatcher() {
             listPair.first.zip(listPair.second).forEach {
                 val input = it.first.toString()
                 val expectation = it.second
-                println(calculator.expr)
+                println(calculator.expr.copy(hide = false))
                 calculator.input(input.toPanelInput())
                 assertThat(calculator.eval.toString()).isEqualTo(expectation)
             }

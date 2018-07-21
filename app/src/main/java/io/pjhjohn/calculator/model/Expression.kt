@@ -3,7 +3,8 @@ package io.pjhjohn.calculator.model
 data class Expression(
     val operand1: Operand = Operand.Empty,
     val operator: Operator = Operator.Empty,
-    val operand2: Operand = Operand.Empty
+    val operand2: Operand = Operand.Empty,
+    val hide: Boolean = true
 ) {
 
     val lastArgument: Argument
@@ -30,6 +31,8 @@ data class Expression(
         NONE, OPERAND1, OPERATOR, OPERAND2
     }
 
-    override fun toString(): String = "$operand1 $operator $operand2 = "
+    override fun toString(): String =
+        if (hide) ""
+        else "$operand1 $operator $operand2"
 
 }

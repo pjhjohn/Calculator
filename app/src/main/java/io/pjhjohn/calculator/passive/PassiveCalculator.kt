@@ -33,7 +33,7 @@ object PassiveCalculator : Calculator {
                     }
                 }
             }
-        }
+        }.copy(hide = false)
     }
 
     override fun input(operator: Operator) {
@@ -55,7 +55,7 @@ object PassiveCalculator : Calculator {
                     } ?: expr
                 }
             }
-        }
+        }.copy(hide = false)
     }
 
     override fun reset() {
@@ -75,9 +75,7 @@ object PassiveCalculator : Calculator {
             }
 
             Expression.Argument.OPERATOR
-            -> {
-                expr
-            }
+            -> expr
 
             Expression.Argument.OPERAND2
             -> {
@@ -93,7 +91,7 @@ object PassiveCalculator : Calculator {
                     } ?: expr
                 }
             }
-        }
+        }.copy(hide = true)
     }
 
 }

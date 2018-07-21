@@ -3,18 +3,16 @@
 
     <data>
         <import type="io.pjhjohn.calculator.model.PanelInput"/>
-        <variable name="vm" type="io.pjhjohn.calculator.passive.PassiveCalculatorViewModel"/>
+        <variable name="vm" type="io.pjhjohn.calculator.base.CalculatorViewModel"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/passive_calculator_panel"
+        android:id="@+id/calculator_panel"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/bgPanel"
-        tools:context=".passive.PassiveCalculatorActivity">
+        android:background="@color/bgPanel">
 
         <Button style="@style/PanelButton.Number"
             android:id="@+id/btn_number_7"

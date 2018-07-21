@@ -8,7 +8,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import io.pjhjohn.calculator.R
-import io.pjhjohn.calculator.databinding.FragmentPassiveCalculatorPanelBinding
+import io.pjhjohn.calculator.base.CalculatorViewModel
+import io.pjhjohn.calculator.databinding.FragmentCalculatorPanelBinding
 
 class PassiveCalculatorPanelFragment : Fragment() {
 
@@ -16,8 +17,8 @@ class PassiveCalculatorPanelFragment : Fragment() {
         fun newInstance() = PassiveCalculatorPanelFragment()
     }
 
-    private lateinit var binding: FragmentPassiveCalculatorPanelBinding
-    private lateinit var viewModel: PassiveCalculatorViewModel
+    private lateinit var binding: FragmentCalculatorPanelBinding
+    private lateinit var viewModel: CalculatorViewModel
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -26,7 +27,7 @@ class PassiveCalculatorPanelFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_passive_calculator_panel, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_calculator_panel, container, false)
         binding.setLifecycleOwner(this)
         return binding.root
     }

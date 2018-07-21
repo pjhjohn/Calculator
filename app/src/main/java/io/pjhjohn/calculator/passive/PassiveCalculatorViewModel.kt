@@ -1,18 +1,11 @@
 package io.pjhjohn.calculator.passive
 
-import androidx.databinding.ObservableField
-import androidx.lifecycle.ViewModel
-import io.pjhjohn.calculator.base.Calculator
+import io.pjhjohn.calculator.base.CalculatorViewModel
 import io.pjhjohn.calculator.model.PanelInput
 
-class PassiveCalculatorViewModel : ViewModel() {
+class PassiveCalculatorViewModel : CalculatorViewModel(PassiveCalculator) {
 
-    val calculator: Calculator by lazy { PassiveCalculator }
-
-    val expression: ObservableField<String> = ObservableField(calculator.expr.toString())
-    val evaluationResult: ObservableField<String> = ObservableField(calculator.eval.toString())
-
-    fun input(value: PanelInput) {
+    override fun input(value: PanelInput) {
         when (value) {
             PanelInput.Number0,
             PanelInput.Number1,

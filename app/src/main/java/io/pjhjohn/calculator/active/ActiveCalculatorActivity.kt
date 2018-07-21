@@ -12,7 +12,7 @@ class ActiveCalculatorActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_active_calculator)
+        setContentView(R.layout.activity_calculator)
         setTitle(R.string.activity_active_calculator)
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()

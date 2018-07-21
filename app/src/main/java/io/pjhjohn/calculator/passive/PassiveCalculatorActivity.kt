@@ -12,7 +12,7 @@ class PassiveCalculatorActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_passive_calculator)
+        setContentView(R.layout.activity_calculator)
         setTitle(R.string.activity_passive_calculator)
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()

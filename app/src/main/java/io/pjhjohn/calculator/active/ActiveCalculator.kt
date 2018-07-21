@@ -1,8 +1,9 @@
-package io.pjhjohn.calculator.calc
+package io.pjhjohn.calculator.active
 
-import io.pjhjohn.calculator.calc.model.Expression
-import io.pjhjohn.calculator.calc.model.Operand
-import io.pjhjohn.calculator.calc.model.Operator
+import io.pjhjohn.calculator.base.Calculator
+import io.pjhjohn.calculator.model.Expression
+import io.pjhjohn.calculator.model.Operand
+import io.pjhjohn.calculator.model.Operator
 
 object ActiveCalculator : Calculator {
 

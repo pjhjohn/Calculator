@@ -1,4 +1,4 @@
-package io.pjhjohn.calculator.calc.model
+package io.pjhjohn.calculator.model
 
 sealed class Operand {
 

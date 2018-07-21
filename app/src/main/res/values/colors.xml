@@ -6,9 +6,15 @@
     <color name="primaryDark">@color/teal700</color>
     <color name="accent">@color/tealA200</color>
 
-    <!--AccentCalculator-->
-    <color name="bgDisplay">@color/gray100</color>
-    <color name="fgDisplay">@color/primaryDark</color>
+    <!--Active Calculator-->
+    <color name="bgActiveCalculatorDisplay">@color/gray100</color>
+    <color name="fgActiveCalculatorDisplay">@color/primaryDark</color>
+
+    <!--Passive Calculator-->
+    <color name="bgPassiveCalculatorDisplay">@color/gray800</color>
+    <color name="fgPassiveCalculatorDisplay">@color/primary</color>
+
+    <!--Calculator Panel-->
     <color name="bgPanel">@color/primary</color>
     <color name="fgPanel">@color/gray100</color>
     <color name="bgPanelButtonNumber">@color/teal500</color>

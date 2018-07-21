@@ -2,18 +2,15 @@
 <layout>
 
     <data>
-        <variable name="vm" type="io.pjhjohn.calculator.view.active.ActiveCalculatorViewModel"/>
+        <variable name="vm" type="io.pjhjohn.calculator.base.CalculatorViewModel"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/active_calculator_display"
+        android:id="@+id/calculator_display"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/bgDisplay"
-        tools:context=".view.active.ActiveCalculatorPanelFragment">
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/tv_expression"
@@ -43,7 +40,6 @@
             android:layout_marginBottom="32dp"
             android:gravity="end"
             android:text="@{ vm.evaluationResult }"
-            android:textColor="@color/fgDisplay"
             android:textSize="32sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

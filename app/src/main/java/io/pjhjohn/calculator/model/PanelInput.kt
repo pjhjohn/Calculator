@@ -1,8 +1,5 @@
 package io.pjhjohn.calculator.model
 
-import io.pjhjohn.calculator.calc.model.Operand
-import io.pjhjohn.calculator.calc.model.Operator
-
 enum class PanelInput(val value: String) {
 
     Number0("0"),

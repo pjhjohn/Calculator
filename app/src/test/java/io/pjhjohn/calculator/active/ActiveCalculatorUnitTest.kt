@@ -19,7 +19,8 @@ class ActiveCalculatorUnitTest : UnitTestWatcher() {
         "5833026+6÷6099".toCharArray(),
         "+c+138138+-77×".toCharArray(),
         "-58==3-6÷50+91".toCharArray(),
-        "+886=8×4==÷29+".toCharArray()
+        "+886=8×4==÷29+".toCharArray(),
+        "c3×3+9-1==6=×=".toCharArray()
     )
 
     @Before
@@ -41,7 +42,8 @@ class ActiveCalculatorUnitTest : UnitTestWatcher() {
             listOf("5", "58", "583", "5833", "58330", "583302", "5833026", "5833026", "6", "5833032", "6", "60", "609", "6099"),
             listOf("", "", "", "1", "13", "138", "1381", "13813", "138138", "138138", "138138", "7", "77", "138061"),
             listOf("", "5", "58", "58", "58", "3", "3", "6", "-3", "5", "50", "-0.06", "9", "91"),
-            listOf("", "8", "88", "886", "886", "8", "8", "4", "32", "128", "128", "2", "29", "4.413793")
+            listOf("", "8", "88", "886", "886", "8", "8", "4", "32", "128", "128", "2", "29", "4.413793"),
+            listOf("", "3", "3", "3", "9", "9", "18", "1", "17", "16", "6", "6", "6")
         )
 
         inputsList.zip(expectationsList).forEach { listPair ->
@@ -50,7 +52,7 @@ class ActiveCalculatorUnitTest : UnitTestWatcher() {
             listPair.first.zip(listPair.second).forEach {
                 val input = it.first.toString()
                 val expectation = it.second
-                println(calculator.expr)
+                println(calculator.expr.copy(hide = false))
                 calculator.input(input.toPanelInput())
                 assertThat(calculator.eval.toString()).isEqualTo(expectation)
             }

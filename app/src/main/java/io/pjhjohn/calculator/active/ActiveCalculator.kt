@@ -73,8 +73,12 @@ object ActiveCalculator : Calculator {
 
     override fun evaluate() {
         expr = when (expr.lastArgument) {
-            Expression.Argument.NONE,
-            Expression.Argument.OPERAND1,
+            Expression.Argument.NONE
+            -> expr
+
+            Expression.Argument.OPERAND1
+            -> expr.copy(operand1 = Operand.Fresh(expr.operand1.value))
+
             Expression.Argument.OPERATOR
             -> expr
 

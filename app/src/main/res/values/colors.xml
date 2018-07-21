@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+
+    <!--Theme-->
+    <color name="primary">@color/teal500</color>
+    <color name="primaryDark">@color/teal700</color>
+    <color name="accent">@color/tealA200</color>
+
+    <!--Active Calculator-->
+    <color name="bgActiveCalculatorDisplay">@color/gray100</color>
+    <color name="fgActiveCalculatorDisplay">@color/primaryDark</color>
+
+    <!--Passive Calculator-->
+    <color name="bgPassiveCalculatorDisplay">@color/gray800</color>
+    <color name="fgPassiveCalculatorDisplay">@color/primary</color>
+
+    <!--Calculator Panel-->
+    <color name="bgPanel">@color/primary</color>
+    <color name="fgPanel">@color/gray100</color>
+    <color name="bgPanelButtonNumber">@color/teal500</color>
+    <color name="fgPanelButtonNumber">@color/gray100</color>
+    <color name="bgPanelButtonOperator">@color/teal700</color>
+    <color name="fgPanelButtonOperator">@color/gray100</color>
+    <color name="bgPanelButtonCommand">@color/teal600</color>
+    <color name="fgPanelButtonCommand">@color/gray100</color>
+
 </resources>

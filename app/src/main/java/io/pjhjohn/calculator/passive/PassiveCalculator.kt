@@ -5,7 +5,7 @@ import io.pjhjohn.calculator.model.Expression
 import io.pjhjohn.calculator.model.Operand
 import io.pjhjohn.calculator.model.Operator
 
-object PassiveCalculator : Calculator {
+class PassiveCalculator : Calculator {
 
     override var expr: Expression = Expression()
     override var eval: Operand = Operand.Empty

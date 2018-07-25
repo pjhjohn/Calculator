@@ -3,7 +3,7 @@ package io.pjhjohn.calculator.active
 import io.pjhjohn.calculator.base.CalculatorViewModel
 import io.pjhjohn.calculator.model.PanelInput
 
-class ActiveCalculatorViewModel : CalculatorViewModel(ActiveCalculator) {
+class ActiveCalculatorViewModel : CalculatorViewModel(ActiveCalculator()) {
 
     override fun input(value: PanelInput) {
         when (value) {

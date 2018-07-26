@@ -7,8 +7,8 @@ import io.pjhjohn.calculator.model.Operator
 
 class ActiveCalculator : Calculator {
 
-    override var expr: Expression = Expression()
-    override var eval: Operand = Operand.Empty
+    override lateinit var expr: Expression
+    override lateinit var eval: Operand
 
     override fun input(operand: Operand) {
         expr = when (expr.lastArgument) {

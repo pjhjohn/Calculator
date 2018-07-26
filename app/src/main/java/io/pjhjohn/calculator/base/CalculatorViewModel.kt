@@ -11,5 +11,6 @@ abstract class CalculatorViewModel(
     val expression: MutableLiveData<String> = MutableLiveData()
     val evaluationResult: MutableLiveData<String> = MutableLiveData()
 
+    abstract fun initialize()
     abstract fun input(value: PanelInput)
 }

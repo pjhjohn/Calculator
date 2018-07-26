@@ -11,7 +11,7 @@ interface Calculator {
 
     fun input(operand: Operand)
     fun input(operator: Operator)
-    fun reset()
+    fun reset(operand1: Operand = Operand.Empty)
     fun evaluate()
 
 }

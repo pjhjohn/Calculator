@@ -66,9 +66,9 @@ class ActiveCalculator : Calculator {
         }
     }
 
-    override fun reset() {
-        eval = Operand.Empty
-        expr = Expression()
+    override fun reset(operand1: Operand) {
+        eval = operand1
+        expr = Expression(operand1)
     }
 
     override fun evaluate() {

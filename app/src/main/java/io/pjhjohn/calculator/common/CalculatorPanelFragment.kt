@@ -1,4 +1,4 @@
-package io.pjhjohn.calculator.passive
+package io.pjhjohn.calculator.common
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,18 +11,19 @@ import io.pjhjohn.calculator.R
 import io.pjhjohn.calculator.base.CalculatorViewModel
 import io.pjhjohn.calculator.databinding.FragmentCalculatorPanelBinding
 
-class PassiveCalculatorPanelFragment : Fragment() {
+class CalculatorPanelFragment : Fragment() {
 
     companion object {
-        fun newInstance() = PassiveCalculatorPanelFragment()
+        fun newInstance() = CalculatorPanelFragment()
     }
 
     private lateinit var binding: FragmentCalculatorPanelBinding
     private lateinit var viewModel: CalculatorViewModel
+    lateinit var modelClass: Class<CalculatorViewModel>
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(requireActivity()).get(PassiveCalculatorViewModel::class.java)
+        viewModel = ViewModelProviders.of(requireActivity()).get(modelClass)
             .also { binding.vm = it }
     }
 

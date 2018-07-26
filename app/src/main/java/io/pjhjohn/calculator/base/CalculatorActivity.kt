@@ -7,6 +7,7 @@ import io.pjhjohn.calculator.R
 
 abstract class CalculatorActivity : AppCompatActivity() {
 
+    abstract fun initCalculator()
     abstract fun swapCalculator()
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

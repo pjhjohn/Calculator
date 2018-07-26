@@ -21,7 +21,7 @@ class PassiveCalculatorActivity : CalculatorActivity() {
         if (savedInstanceState == null) {
             if (Storage.getString(Storage.LAST_ACTIVITY_CLASSNAME, this::class.java.name) == this::class.java.name) initCalculator()
             else swapCalculator()
-        }
+        } else initCalculator()
     }
 
     override fun initCalculator() {

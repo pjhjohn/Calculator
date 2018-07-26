@@ -13,8 +13,9 @@ class PassiveCalculatorViewModel : CalculatorViewModel(PassiveCalculator()) {
     }
 
     override fun initialize() {
-        val value = Storage.getStringNullable(LAST_EVALUATION_KEY)?.toFloatOrNull()
-        val operand = if (value != null) Operand.Fresh(value) else Operand.Empty
+        val operand =
+            if (LAST_EVALUATION_KEY in Storage) Operand.Fresh(Storage.getFloat(LAST_EVALUATION_KEY, 0.0f))
+            else Operand.Empty
 
         calculator.expr = Expression(operand)
         calculator.eval = operand
@@ -50,6 +51,6 @@ class PassiveCalculatorViewModel : CalculatorViewModel(PassiveCalculator()) {
 
         expression.value = calculator.expr.toString()
         evaluationResult.value = calculator.eval.toString()
-        Storage.put(calculator.eval.toString() to LAST_EVALUATION_KEY)
+        if (calculator.eval.isEmpty.not()) Storage.put(calculator.eval.value to LAST_EVALUATION_KEY)
     }
 }

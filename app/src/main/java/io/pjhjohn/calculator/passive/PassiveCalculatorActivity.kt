@@ -2,9 +2,13 @@ package io.pjhjohn.calculator.passive
 
 import android.content.Intent
 import android.os.Bundle
+import androidx.core.os.bundleOf
 import io.pjhjohn.calculator.R
 import io.pjhjohn.calculator.active.ActiveCalculatorActivity
 import io.pjhjohn.calculator.base.CalculatorActivity
+import io.pjhjohn.calculator.base.CalculatorViewModel
+import io.pjhjohn.calculator.common.CalculatorDisplayFragment
+import io.pjhjohn.calculator.common.CalculatorPanelFragment
 import io.pjhjohn.calculator.util.Storage
 
 class PassiveCalculatorActivity : CalculatorActivity() {
@@ -23,8 +27,18 @@ class PassiveCalculatorActivity : CalculatorActivity() {
         if (savedInstanceState == null) {
             if (Storage.getString(Storage.LAST_ACTIVITY_CLASSNAME, this::class.java.name) != this::class.java.name) swapCalculator()
             else supportFragmentManager.beginTransaction()
-                .replace(R.id.display, PassiveCalculatorDisplayFragment.newInstance())
-                .replace(R.id.panel, PassiveCalculatorPanelFragment.newInstance())
+                .replace(R.id.display, CalculatorDisplayFragment.newInstance().apply {
+                    @Suppress("UNCHECKED_CAST")
+                    modelClass = PassiveCalculatorViewModel::class.java as Class<CalculatorViewModel>
+                    arguments = bundleOf(
+                        CalculatorDisplayFragment.RESID_BACKGROUND_COLOR to R.color.bgPassiveCalculatorDisplay,
+                        CalculatorDisplayFragment.RESID_FOREGROUND_COLOR to R.color.fgPassiveCalculatorDisplay
+                    )
+                })
+                .replace(R.id.panel, CalculatorPanelFragment.newInstance().apply {
+                    @Suppress("UNCHECKED_CAST")
+                    modelClass = PassiveCalculatorViewModel::class.java as Class<CalculatorViewModel>
+                })
                 .commitNow()
         }
     }

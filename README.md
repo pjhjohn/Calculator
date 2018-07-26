@@ -14,6 +14,13 @@ Android Calculator using MVVM + DataBinding
 
 
 
+### Dependencies (except defaults)
+
+- Android KTX `1.0.0-beta01`
+- AssertJ Core `3.9.0`
+
+
+
 ### Features
 
 - Active Calculator : Expression is evaluated if evaluatable whenever input is `+` `-` `×` `÷` `=`
@@ -29,8 +36,9 @@ Android Calculator using MVVM + DataBinding
 
 - Kept project structure as simple as possible
   - `.base` for class reusability through inheritance
-  - `.active` for active calculator
-  - `.passive` for passive calculator
+  - `.common` for class share throughout `.active` and `.passive` components
+  - `.active` for active calculator-related components
+  - `.passive` for passive calculator-related components
   - `.model` for model classes `sealed` `enum` `data` `...`
   - `.util` for utility class - `Storage`
 
@@ -44,3 +52,12 @@ Android Calculator using MVVM + DataBinding
 - Share Resources if possible, including data bound layouts
 
 - Separate color resources by its value definition & behavior to color mapping
+
+
+
+### Component Roles
+
+- `Activity` as `View` : takes Activity transition control, Fragment management(with initialization), and calculator(model) initialization(through ViewModel)
+- `Fragment` as `View` : binds given ViewModel to layout using 2-way data-binding
+- `ViewModel` : delivers event & data between view and calculator(model)
+- `Calculator` is considered as... more like `repository` since it holds multiple `models`

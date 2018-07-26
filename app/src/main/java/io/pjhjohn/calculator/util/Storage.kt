@@ -24,7 +24,7 @@ object Storage {
     fun getFloat(key: String, fallback: Float): Float = local().getFloat(key, fallback)
     fun getInt(key: String, fallback: Int): Int = local().getInt(key, fallback)
     fun getLong(key: String, fallback: Long): Long = local().getLong(key, fallback)
-    fun getString(key: String, fallback: String): String = local().getString(key, fallback)
+    fun getString(key: String, fallback: String? = null): String = checkNotNull(local().getString(key, fallback))
     fun getStringNullable(key: String, fallback: String? = null): String? = local().getString(key, fallback)
 
     /* SharedPreferences.Editor Method Mapping */

@@ -2,7 +2,7 @@ package io.pjhjohn.calculator.model
 
 import io.pjhjohn.calculator.UnitTestWatcher
 import io.pjhjohn.calculator.model.Expression.Argument.*
-import org.assertj.core.api.Assertions.assertThat
+import org.assertj.core.api.Assertions.*
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
@@ -160,7 +160,9 @@ class ExpressionUnitTest : UnitTestWatcher() {
         )
 
         expressions.zip(expectations).forEach { pair ->
-            assertThat(pair.first.evaluate()).isEqualTo(pair.second)
+            val expectation = pair.second
+            if (expectation == null) assertThatIllegalStateException().isThrownBy { pair.first.evaluate() }
+            else assertThat(pair.first.evaluate()).isEqualTo(expectation)
         }
     }
 

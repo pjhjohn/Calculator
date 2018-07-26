@@ -55,19 +55,19 @@ class OperandUnitTest : UnitTestWatcher() {
     }
 
     @Test
-    fun testToString() {
-        assertThat(Operand.Fresh(0.0f).toString()).isEqualTo("0")
-        assertThat(Operand.Fresh(0.1f).toString()).isEqualTo("0.1")
-        assertThat(Operand.Fresh(1.0f).toString()).isEqualTo("1")
-        assertThat(Operand.Fresh(1.1f).toString()).isEqualTo("1.1")
-        assertThat(Operand.Fresh(-0.0f).toString()).isEqualTo("0")
-        assertThat(Operand.Fresh(-0.1f).toString()).isEqualTo("-0.1")
-        assertThat(Operand.Fresh(-1.0f).toString()).isEqualTo("-1")
-        assertThat(Operand.Fresh(-1.1f).toString()).isEqualTo("-1.1")
-        assertThat(Operand.Dirty(0).toString()).isEqualTo("0")
-        assertThat(Operand.Dirty(1).toString()).isEqualTo("1")
-        assertThat(Operand.Dirty(-1).toString()).isEqualTo("-1")
-        assertThat(Operand.Empty.toString()).isEmpty()
+    fun testAsString() {
+        assertThat(Operand.Fresh(0.0f).asString()).isEqualTo("0")
+        assertThat(Operand.Fresh(0.1f).asString()).isEqualTo("0.1")
+        assertThat(Operand.Fresh(1.0f).asString()).isEqualTo("1")
+        assertThat(Operand.Fresh(1.1f).asString()).isEqualTo("1.1")
+        assertThat(Operand.Fresh(-0.0f).asString()).isEqualTo("0")
+        assertThat(Operand.Fresh(-0.1f).asString()).isEqualTo("-0.1")
+        assertThat(Operand.Fresh(-1.0f).asString()).isEqualTo("-1")
+        assertThat(Operand.Fresh(-1.1f).asString()).isEqualTo("-1.1")
+        assertThat(Operand.Dirty(0).asString()).isEqualTo("0")
+        assertThat(Operand.Dirty(1).asString()).isEqualTo("1")
+        assertThat(Operand.Dirty(-1).asString()).isEqualTo("-1")
+        assertThat(Operand.Empty.asString()).isEmpty()
     }
 
     @Test

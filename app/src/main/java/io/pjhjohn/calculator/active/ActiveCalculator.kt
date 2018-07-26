@@ -57,10 +57,10 @@ class ActiveCalculator : Calculator {
                     eval = Operand.Fresh(expr.operand1.value)
                     expr.copy(operator = operator, operand2 = Operand.Empty)
                 } else {
-                    expr.evaluate()?.let {
+                    expr.evaluate().let {
                         eval = Operand.Fresh(it)
                         expr.copy(operand1 = Operand.Fresh(it), operator = operator, operand2 = Operand.Empty)
-                    } ?: expr
+                    }
                 }
             }
         }
@@ -85,15 +85,15 @@ class ActiveCalculator : Calculator {
             Expression.Argument.OPERAND2
             -> {
                 if (expr.operand2 is Operand.Fresh) {
-                    expr.evaluate()?.let {
+                    expr.evaluate().let {
                         eval = Operand.Fresh(it)
                         expr.copy(operand1 = Operand.Fresh(it))
-                    } ?: expr
+                    }
                 } else {
-                    expr.evaluate()?.let {
+                    expr.evaluate().let {
                         eval = Operand.Fresh(it)
                         expr.copy(operand1 = Operand.Fresh(it), operand2 = Operand.Fresh(expr.operand2.value))
-                    } ?: expr
+                    }
                 }
             }
         }

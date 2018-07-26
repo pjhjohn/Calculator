@@ -52,9 +52,9 @@ class ActiveCalculatorUnitTest : UnitTestWatcher() {
             listPair.first.zip(listPair.second).forEach {
                 val input = it.first.toString()
                 val expectation = it.second
-                println(calculator.expr.copy(hide = false))
+                println(calculator.expr.copy(hide = false).asString())
                 calculator.input(input.toPanelInput())
-                assertThat(calculator.eval.toString()).isEqualTo(expectation)
+                assertThat(calculator.eval.asString()).isEqualTo(expectation)
             }
         }
     }

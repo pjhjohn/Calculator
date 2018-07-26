@@ -5,10 +5,10 @@ import io.pjhjohn.calculator.model.Expression
 import io.pjhjohn.calculator.model.Operand
 import io.pjhjohn.calculator.model.Operator
 
-object PassiveCalculator : Calculator {
+class PassiveCalculator : Calculator {
 
-    override var expr: Expression = Expression()
-    override var eval: Operand = Operand.Empty
+    override lateinit var expr: Expression
+    override lateinit var eval: Operand
 
     override fun input(operand: Operand) {
         expr = if (expr.locked) expr else when (expr.lastArgument) {
@@ -56,9 +56,9 @@ object PassiveCalculator : Calculator {
         }.copy(hide = false)
     }
 
-    override fun reset() {
-        eval = Operand.Empty
-        expr = Expression()
+    override fun reset(operand1: Operand) {
+        eval = operand1
+        expr = Expression(operand1)
     }
 
     override fun evaluate() {
@@ -78,15 +78,15 @@ object PassiveCalculator : Calculator {
             Expression.Argument.OPERAND2
             -> {
                 if (expr.operand2 is Operand.Fresh) {
-                    expr.evaluate()?.let {
+                    expr.evaluate().let {
                         eval = Operand.Fresh(it)
                         expr.copy(operand1 = Operand.Fresh(it))
-                    } ?: expr
+                    }
                 } else {
-                    expr.evaluate()?.let {
+                    expr.evaluate().let {
                         eval = Operand.Fresh(it)
                         expr.copy(operand1 = Operand.Fresh(it), operand2 = Operand.Fresh(expr.operand2.value))
-                    } ?: expr
+                    }
                 }
             }
         }.copy(locked = false, hide = true)

@@ -5,10 +5,10 @@ import io.pjhjohn.calculator.model.Expression
 import io.pjhjohn.calculator.model.Operand
 import io.pjhjohn.calculator.model.Operator
 
-object ActiveCalculator : Calculator {
+class ActiveCalculator : Calculator {
 
-    override var expr: Expression = Expression()
-    override var eval: Operand = Operand.Empty
+    override lateinit var expr: Expression
+    override lateinit var eval: Operand
 
     override fun input(operand: Operand) {
         expr = when (expr.lastArgument) {
@@ -57,18 +57,18 @@ object ActiveCalculator : Calculator {
                     eval = Operand.Fresh(expr.operand1.value)
                     expr.copy(operator = operator, operand2 = Operand.Empty)
                 } else {
-                    expr.evaluate()?.let {
+                    expr.evaluate().let {
                         eval = Operand.Fresh(it)
                         expr.copy(operand1 = Operand.Fresh(it), operator = operator, operand2 = Operand.Empty)
-                    } ?: expr
+                    }
                 }
             }
         }
     }
 
-    override fun reset() {
-        eval = Operand.Empty
-        expr = Expression()
+    override fun reset(operand1: Operand) {
+        eval = operand1
+        expr = Expression(operand1)
     }
 
     override fun evaluate() {
@@ -85,15 +85,15 @@ object ActiveCalculator : Calculator {
             Expression.Argument.OPERAND2
             -> {
                 if (expr.operand2 is Operand.Fresh) {
-                    expr.evaluate()?.let {
+                    expr.evaluate().let {
                         eval = Operand.Fresh(it)
                         expr.copy(operand1 = Operand.Fresh(it))
-                    } ?: expr
+                    }
                 } else {
-                    expr.evaluate()?.let {
+                    expr.evaluate().let {
                         eval = Operand.Fresh(it)
                         expr.copy(operand1 = Operand.Fresh(it), operand2 = Operand.Fresh(expr.operand2.value))
-                    } ?: expr
+                    }
                 }
             }
         }

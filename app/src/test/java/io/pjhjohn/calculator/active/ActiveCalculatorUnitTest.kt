@@ -11,7 +11,7 @@ import org.junit.Test
 
 class ActiveCalculatorUnitTest : UnitTestWatcher() {
 
-    private val calculator = ActiveCalculator
+    private val calculator = ActiveCalculator()
     private val inputsList = listOf(
         "56++÷÷595-0÷-c".toCharArray(),
         "1÷26912×264521".toCharArray(),
@@ -52,9 +52,9 @@ class ActiveCalculatorUnitTest : UnitTestWatcher() {
             listPair.first.zip(listPair.second).forEach {
                 val input = it.first.toString()
                 val expectation = it.second
-                println(calculator.expr.copy(hide = false))
+                println(calculator.expr.copy(hide = false).asString())
                 calculator.input(input.toPanelInput())
-                assertThat(calculator.eval.toString()).isEqualTo(expectation)
+                assertThat(calculator.eval.asString()).isEqualTo(expectation)
             }
         }
     }

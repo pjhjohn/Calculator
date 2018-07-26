@@ -78,15 +78,15 @@ class PassiveCalculator : Calculator {
             Expression.Argument.OPERAND2
             -> {
                 if (expr.operand2 is Operand.Fresh) {
-                    expr.evaluate()?.let {
+                    expr.evaluate().let {
                         eval = Operand.Fresh(it)
                         expr.copy(operand1 = Operand.Fresh(it))
-                    } ?: expr
+                    }
                 } else {
-                    expr.evaluate()?.let {
+                    expr.evaluate().let {
                         eval = Operand.Fresh(it)
                         expr.copy(operand1 = Operand.Fresh(it), operand2 = Operand.Fresh(expr.operand2.value))
-                    } ?: expr
+                    }
                 }
             }
         }.copy(locked = false, hide = true)

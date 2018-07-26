@@ -21,16 +21,15 @@ data class Expression(
                 else -> Argument.OPERAND2
             }
 
-    fun evaluate(): Float? {
-        return if (operand1.isEmpty || operand2.isEmpty) null
+    fun evaluate(): Float =
+        if (operand1.isEmpty || operand2.isEmpty) throw IllegalStateException("$this is not evaluable")
         else when (operator) {
             Operator.Plus -> operand1.value + operand2.value
             Operator.Minus -> operand1.value - operand2.value
             Operator.Multiply -> operand1.value * operand2.value
             Operator.Divide -> operand1.value / operand2.value
-            Operator.Empty -> null
+            Operator.Empty -> throw IllegalStateException("$this is not evaluable")
         }
-    }
 
     fun asString(): String =
         if (hide) ""

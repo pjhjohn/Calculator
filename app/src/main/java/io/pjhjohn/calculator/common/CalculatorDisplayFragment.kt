@@ -27,10 +27,7 @@ class CalculatorDisplayFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(requireActivity()).get(modelClass)
-            .also {
-                binding.vm = it
-                it.initialize()
-            }
+            .also { binding.vm = it }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {

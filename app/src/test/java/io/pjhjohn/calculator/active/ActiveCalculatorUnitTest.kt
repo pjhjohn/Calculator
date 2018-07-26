@@ -11,7 +11,7 @@ import org.junit.Test
 
 class ActiveCalculatorUnitTest : UnitTestWatcher() {
 
-    private val calculator = ActiveCalculator
+    private val calculator = ActiveCalculator()
     private val inputsList = listOf(
         "56++÷÷595-0÷-c".toCharArray(),
         "1÷26912×264521".toCharArray(),

@@ -19,7 +19,7 @@ class ActiveCalculatorViewModel : CalculatorViewModel(ActiveCalculator()) {
 
         calculator.expr = Expression(operand)
         calculator.eval = operand
-        evaluationResult.value = operand.toString()
+        evaluationResult.value = operand.asString()
     }
 
     override fun input(value: PanelInput) {
@@ -49,8 +49,8 @@ class ActiveCalculatorViewModel : CalculatorViewModel(ActiveCalculator()) {
             -> calculator.evaluate()
         }
 
-        expression.value = calculator.expr.toString()
-        evaluationResult.value = calculator.eval.toString()
+        expression.value = calculator.expr.asString()
+        evaluationResult.value = calculator.eval.asString()
         if (calculator.eval.isEmpty.not()) Storage.put(calculator.eval.value to LAST_EVALUATION_KEY)
     }
 }

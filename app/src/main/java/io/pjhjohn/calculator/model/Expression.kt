@@ -8,6 +8,10 @@ data class Expression(
     val hide: Boolean = true
 ) {
 
+    enum class Argument {
+        NONE, OPERAND1, OPERATOR, OPERAND2
+    }
+
     val lastArgument: Argument
         get() =
             when {
@@ -28,12 +32,8 @@ data class Expression(
         }
     }
 
-    enum class Argument {
-        NONE, OPERAND1, OPERATOR, OPERAND2
-    }
-
-    override fun toString(): String =
+    fun asString(): String =
         if (hide) ""
-        else "$operand1 $operator $operand2"
+        else "${operand1.asString()} ${operator.asString()} ${operand2.asString()}"
 
 }

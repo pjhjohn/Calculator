@@ -11,7 +11,7 @@ enum class Operator {
     val isEmpty: Boolean
         get() = this == Empty
 
-    override fun toString(): String =
+    fun asString(): String =
         when (this) {
             Plus -> "+"
             Minus -> "-"

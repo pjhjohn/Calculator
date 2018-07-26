@@ -21,31 +21,31 @@ class OperatorUnitTest : UnitTestWatcher() {
     @Test
     fun testPlusOperator() {
         assertThat(Operator.Plus.isEmpty).isFalse()
-        assertThat(Operator.Plus.toString()).isEqualTo("+")
+        assertThat(Operator.Plus.asString()).isEqualTo("+")
     }
 
     @Test
     fun testMinusOperator() {
         assertThat(Operator.Minus.isEmpty).isFalse()
-        assertThat(Operator.Minus.toString()).isEqualTo("-")
+        assertThat(Operator.Minus.asString()).isEqualTo("-")
     }
 
     @Test
     fun testMultiplyOperator() {
         assertThat(Operator.Multiply.isEmpty).isFalse()
-        assertThat(Operator.Multiply.toString()).isEqualTo("×")
+        assertThat(Operator.Multiply.asString()).isEqualTo("×")
     }
 
     @Test
     fun testDivideOperator() {
         assertThat(Operator.Divide.isEmpty).isFalse()
-        assertThat(Operator.Divide.toString()).isEqualTo("÷")
+        assertThat(Operator.Divide.asString()).isEqualTo("÷")
     }
 
     @Test
     fun testEmptyOperatorWithoutException() {
         assertThat(Operator.Empty.isEmpty).isTrue()
-        assertThat(Operator.Empty.toString()).isEmpty()
+        assertThat(Operator.Empty.asString()).isEmpty()
     }
 
 }

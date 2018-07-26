@@ -24,7 +24,7 @@ sealed class Operand {
         }
         else throw IllegalArgumentException("Operand is not dirty")
 
-    override fun toString(): String =
+    fun asString(): String =
         when (this) {
             is Fresh -> when {
                 this.number - this.number.toInt() == 0.0f -> this.number.toInt().toString()
